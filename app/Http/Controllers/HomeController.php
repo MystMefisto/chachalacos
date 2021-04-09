@@ -25,4 +25,8 @@ class HomeController extends Controller
     {
         return view('posts');
     }
+    public function post()
+    {
+        return view('post');
+    }
 }
