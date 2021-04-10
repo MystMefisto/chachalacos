@@ -1,16 +1,20 @@
 @extends('adminlte::page')
-@section('title', 'Admin - categorías')
 
+@section('title', 'Admin - Categorías')
 
+@section('css')
+    <!-- link rel="stylesheet" href="/css/admin_custom.css"-->
+@stop
 
 @section('content_header')
 <h1>
-    Listado de categorias
+    Categorías
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-create-category">
         Crear
     </button>
 </h1>
 @stop
+
 
 @section('content')
 <div class="container-fluid">
@@ -25,100 +29,37 @@
                 <table id="categories" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
+                            <th>ID</th>
+                            <th>Categoría</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($categories as $category)
                         <tr>
-                            <td>Trident</td>
-                            <td>Internet
-                            Explorer 4.0
+                            <td>{{ $category->id }}</td>
+                            <td>{{ $category->name }}</td>
+                            <td>
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-update-category-{{$category->id}}">
+                                    Editar
+                                </button>
+                                <form action="{{route('admin.categories.delete', $category->id)}}" method="POST">
+                                    {{ csrf_field() }}
+                                    @method('DELETE')
+                                    <button class="btn btn-danger">Eliminar</button>
+                                </form>
                             </td>
-                            <td>Win 95+</td>
-                            <td> 4</td>
-                            <td>X</td>
                         </tr>
-                        <tr>
-                            <td>Trident</td>
-                            <td>Internet
-                            Explorer 5.0
-                            </td>
-                            <td>Win 95+</td>
-                            <td>5</td>
-                            <td>C</td>
-                        </tr>
-                        <tr>
-                            <td>Trident</td>
-                            <td>Internet
-                            Explorer 5.5
-                            </td>
-                            <td>Win 95+</td>
-                            <td>5.5</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Trident</td>
-                            <td>Internet
-                            Explorer 6
-                            </td>
-                            <td>Win 98+</td>
-                            <td>6</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Trident</td>
-                            <td>Internet Explorer 7</td>
-                            <td>Win XP SP2+</td>
-                            <td>7</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Trident</td>
-                            <td>AOL browser (AOL desktop)</td>
-                            <td>Win XP</td>
-                            <td>6</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Gecko</td>
-                            <td>Firefox 1.0</td>
-                            <td>Win 98+ / OSX.2+</td>
-                            <td>1.7</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Gecko</td>
-                            <td>Firefox 1.5</td>
-                            <td>Win 98+ / OSX.2+</td>
-                            <td>1.8</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Gecko</td>
-                            <td>Firefox 2.0</td>
-                            <td>Win 98+ / OSX.2+</td>
-                            <td>1.8</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Gecko</td>
-                            <td>Firefox 3.0</td>
-                            <td>Win 2k+ / OSX.3+</td>
-                            <td>1.9</td>
-                            <td>A</td>
-                        </tr>
+                        <!-- modal - UPDATE CATEGORY -->
+                        @include('admin.categories.modal-update-category')
+                        <!-- /.modal -->
+                        @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
+                            <th>ID</th>
+                            <th>Categoría</th>
+                            <th>Acciones</th>
                         </tr>
                     </tfoot>
                 </table>
@@ -140,14 +81,21 @@
                 <h4 class="modal-title">Crear Categoría</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
+            </div>
+            <form action="{{ route('admin.categories.store') }}" method="POST">
+                {{ csrf_field() }}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Categoría</label>
+                        <input type="text" name="name" class="form-control" id="category">
+                    </div>
                 </div>
-            <div class="modal-body">
-                <p>Proximamente, Formulario....</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-outline-light">Save changes</button>
-            </div>
+
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-outline-primary">Guardar</button>
+                </div>
+            </form>
         </div>
       <!-- /.modal-content -->
     </div>

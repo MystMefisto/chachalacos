@@ -21,7 +21,10 @@ Route::get('/home', function(){
 })->middleware('auth');
 
 
-Route::get('/admin/categories', 'Admin\CategoriesController@index')->name('admin.categories');
+Route::get('/admin/categories', 'Admin\CategoriesController@index')->name('admin.categories.index');
+Route::post('/admin/categories/store', 'Admin\CategoriesController@store')->name('admin.categories.store');
+Route::post('/admin/categories/{categoryId}/update', 'Admin\CategoriesController@update')->name('admin.categories.update');
+Route::delete('/admin/categories/{categoryId}/delete', 'Admin\CategoriesController@delete')->name('admin.categories.delete');
 
 Auth::routes();
 
