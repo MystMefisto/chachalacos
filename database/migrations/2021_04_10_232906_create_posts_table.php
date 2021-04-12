@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->longText('content');
             $table->string('author')->nullable();
+            $table->string('featured');
             $table->timestamps();
         });
     }

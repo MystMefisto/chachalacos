@@ -26,5 +26,10 @@ Route::post('/admin/categories/store', 'Admin\CategoriesController@store')->name
 Route::post('/admin/categories/{categoryId}/update', 'Admin\CategoriesController@update')->name('admin.categories.update');
 Route::delete('/admin/categories/{categoryId}/delete', 'Admin\CategoriesController@delete')->name('admin.categories.delete');
 
+Route::get('/admin/posts', 'Admin\PostsController@index')->name('admin.posts.index');
+Route::post('/admin/posts/store', 'Admin\PostsController@store')->name('admin.posts.store');
+Route::post('/admin/posts/{postId}/update', 'Admin\PostsController@update')->name('admin.posts.update');
+Route::delete('/admin/posts/{postId}/delete', 'Admin\PostsController@delete')->name('admin.posts.delete');
+
 Auth::routes();
 

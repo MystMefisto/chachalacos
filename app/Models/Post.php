@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function posts(){
+    public function category(){
         return $this->belongsTo('App\Models\Category');
     }
 }
