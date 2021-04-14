@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Chachalacos podcast</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
 </head>
 <body>
     <!-- Logo -->
@@ -24,9 +24,10 @@
         <div class="row justify-content-center">
             <div class="col-10 col-md-12">
                 <nav class="text-center my-5">
-                    <a href="#" class="mx-3 pb-3 link-category d-block d-md-inline selected-category" >Todas</a>
-                    <a href="#" class="mx-3 pb-3 link-category d-block d-md-inline" >Programación</a>
-                    <a href="#" class="mx-3 pb-3 link-category d-block d-md-inline" >Desarrollo web</a>
+                    <a href="/" class="mx-3 pb-3 link-category d-block d-md-inline {{ isset($categoryIdSelected)? '': 'selected-category' }}">Todas</a>
+                    @foreach ($categories as $category)
+                    <a href="{{route('posts.category', $category->name)}}" class="mx-3 pb-3 link-category d-block d-md-inline  {{ (isset($categoryIdSelected) && $category->id == $categoryIdSelected)? 'selected-category':'' }} ">{{$category->name}}</a>
+                    @endforeach
                 </nav>
             </div>
         </div>
@@ -36,6 +37,31 @@
             <div class="col-10">
                 <div class="row">
                     <!-- Post 1 -->
+                    @foreach ($posts as $post)
+                    <div class="col-md-4 col-12 justify-content-center mb-5">
+                        <div class="card m-auto" style="width: 18rem;">
+                            <img class="card-img-top" src="{{asset($post->featured)}}" alt="{{$post->name}}">
+                            <div class="card-body">
+                                <small class="card-txt-category">Categoría: {{$post->category->name}} </small>
+                                <h5 class="card-title my-2">{{$post->title}}</h5>
+                                <div class="d-card-text">
+                                    {{Str::limit($post->content,150,'...')}}
+                                </div>
+                                <a href="{{route('post',$post->id)}}" class="post-link"><b>Leer más</b></a>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-6 text-left">
+                                        <span class="card-txt-author"> {{$post->author}} </span>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="card-txt-date"> {{$post->created_at->diffForHumans()}} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    <!-- Post 2
                     <div class="col-md-4 col-12 justify-content-center mb-5">
                         <div class="card m-auto" style="width: 18rem;">
                             <img class="card-img-top" src="{{asset('images/3.png')}}" alt="Post Python">
@@ -59,8 +85,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Post 2 -->
+                    </div>-->
+                    <!-- Post 3
                     <div class="col-md-4 col-12 justify-content-center mb-5">
                         <div class="card m-auto" style="width: 18rem;">
                             <img class="card-img-top" src="{{asset('images/3.png')}}" alt="Post Python">
@@ -84,32 +110,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Post 3 -->
-                    <div class="col-md-4 col-12 justify-content-center mb-5">
-                        <div class="card m-auto" style="width: 18rem;">
-                            <img class="card-img-top" src="{{asset('images/3.png')}}" alt="Post Python">
-                            <div class="card-body">
-                                <small class="card-txt-category">Categoría: Programación</small>
-                                <h5 class="card-title my-2">Aprende Python en un dos tres</h5>
-                                <div class="d-card-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Sed voluptatum ab cumque quisquam quod nesciunt fugiat,
-                                    eius corrupti nulla veniam, molestias nemo repudiandae?
-                                </div>
-                                <a href="#" class="post-link"><b>Leer más</b></a>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-6 text-left">
-                                        <span class="card-txt-author">YouDevs</span>
-                                    </div>
-                                    <div class="col-6 text-right">
-                                        <span class="card-txt-date">Hace 2 semanas</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
 

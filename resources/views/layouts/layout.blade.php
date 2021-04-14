@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    @yield('tab-title')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+    <link rel="icon" href="{{asset('images/logo.svg')}}">
 </head>
 <body>
      <!-- Logo -->
      <nav class="navbar navbar-light bg-main">
         <div class="container p-1">
-            <a class="navbar-brand m-auto" href="#">
+            <a class="navbar-brand m-auto" href="/">
                 <img src="{{asset('images/logo.svg')}}" width="100" alt="" loading="lazy">
             </a>
         </div>

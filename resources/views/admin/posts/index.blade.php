@@ -1,3 +1,7 @@
+<head>
+    <link rel="icon" href="{{asset('images/logo.svg')}}">
+</head>
+
 @extends('adminlte::page')
 
 @section('title', 'Admin - Posts')
