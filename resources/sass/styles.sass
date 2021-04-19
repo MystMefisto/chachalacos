@@ -1,3 +1,85 @@
+html
+    scroll-behavior: smooth
+
+
+h1,h2,h3,h4,h5,h6,p,a, span, small
+    font-family: 'Roboto Condensed', sans-serif
+
+@media screen and ( max-width: 1199px )
+    .header-title
+        font-size: 60px
+        padding-bottom:10px !important
+    .title-post
+        font-size: 60px
+    .navbar-toggler,
+    .navbar-toggler:focus,
+    .navbar-toggler:active,
+    .navbar-toggler-icon:focus
+        font-size: 35px
+
+    .header-logo
+        width: 100%
+        height: auto
+    .header-presentation
+        padding: 0 50px !important
+    .presentation-text
+        margin-bottom: 0
+    .category-container h2
+        font-size: 50px
+
+@media screen and ( min-width:1200px )
+    .header-text, .presentation-text
+        margin:0 450px
+    .header-title
+        margin:0 0
+        font-size: 130px
+    .title-post
+        font-size: 100px
+    #navbar-scroll
+        padding-left:240px
+        padding-right:240px
+
+@keyframes title
+    0%
+        transform: scale(0.1)
+        opacity:0.1
+    100%
+        transform: scale(1)
+        opacity:1
+
+@keyframes title-marker
+    0%
+        background: linear-gradient(to bottom, transparent 20%, #fff87e 0) center center/0% 0% no-repeat
+    100%
+        background-image: linear-gradient(to bottom, transparent 70%, #fff87e 0) center center/0% 80% no-repeat
+
+
+#bg-video
+  position: fixed
+  right: 0
+  bottom: 0
+  min-width: 100%
+  min-height: 100%
+  z-index: -10
+
+.bg-overlay
+    background: rgba(0, 0, 0, 0.5)
+
+.header-title
+    margin:0 200px
+    padding-bottom: 100px
+    animation: title 1s linear
+
+.header-presentation
+    font-size:45px
+    font-weight: bold
+    padding:50px
+    margin-bottom: 0
+
+.presentation-text
+    font-size:30px
+    padding-top:100px
+
 a
     text-decoration: none
     color: black
@@ -8,21 +90,25 @@ hr
     margin: 0 auto
     margin-bottom: 2rem
 
-.navbar
+#navbar-scroll
     z-index: 15
     position: fixed
     top: 0
     width: 100%
-    transition: top 0.4s
+    transition: top 1s
+    transition-timing-function: ease
 
 .bg-main
-    background-color: #CDE4E7 !important
+    background-color: rgba(244, 142, 29) !important
 
 .content
-    background-color: #E6F0F1
+    background-color: #fff
+
+.category-container
+    padding-top: 150px
 
 .selected-category
-    border-bottom: 2px solid black
+    background-color: rgba(244, 142, 29)
 
 .card-txt-category
     color: #9D9D9D
@@ -34,12 +120,38 @@ hr
     color: #9D9D9D
     font-size: 14px
 
+.button:hover
+    transform: scale(1.3,1.3)
+    transition: 1.8s
+    font-size: 20px
+
+
 .card
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2)
-    border-radius: 1.25rem
-    .card-img-top
-        border-top-left-radius: calc(1.25rem - 1px)
-        border-top-right-radius: calc(1.25rem - 1px)
+    border: none 0
+
+    .card:hover
+        transform: translate(0, -3px)
+        box-shadow: 0 2px 8px white
+    .img-fluid
+        margin:0
+        padding: 0
+    .rounded-img
+        border-radius: 0 0 .25rem .25rem
+    .card-body
+        padding: 2rem
 
 .post-txt
-    color: #9D9D9D
+    color: black
+
+//navbar burger icon border delete
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus
+    outline: none
+    border: none
+    box-shadow: none
+
+.blur-post
+    backdrop-filter: blur(200px)

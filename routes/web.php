@@ -19,7 +19,7 @@ Route::get('/post/{postId}', 'HomeController@post')->name('post');
 
 Route::get('/home', function(){
     return view('home');
-})->middleware('auth');
+})->middleware('auth')->name('admin');
 
 
 Route::get('/admin/categories', 'Admin\CategoriesController@index')->name('admin.categories.index');
