@@ -32,5 +32,5 @@ Route::post('/admin/posts/store', 'Admin\PostsController@store')->name('admin.po
 Route::post('/admin/posts/{postId}/update', 'Admin\PostsController@update')->name('admin.posts.update');
 Route::delete('/admin/posts/{postId}/delete', 'Admin\PostsController@delete')->name('admin.posts.delete');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
