@@ -14,7 +14,7 @@
 <body>
      <!-- Logo -->
      <nav id="navbar-scroll" class="navbar-inverse navbar navbar-default w-100 position-fixed navbar-expand-lg navbar-light bg-main " >
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <img src="{{asset('images/logo.svg')}}" width="80" alt="" loading="lazy">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
