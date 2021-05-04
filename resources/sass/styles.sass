@@ -9,6 +9,7 @@ h1,h2,h3,h4,h5,h6,p,a, span, small
     .header-title
         font-size: 60px
         padding-bottom:10px !important
+        box-sizing: border-box
     .title-post
         font-size: 60px
     .navbar-toggler,
@@ -26,6 +27,12 @@ h1,h2,h3,h4,h5,h6,p,a, span, small
         margin-bottom: 0
     .category-container h2
         font-size: 50px
+    #bg-video
+        position: fixed
+        right: 0
+        bottom: 150
+        min-width: 100%
+        height: auto
 
 @media screen and ( min-width:1200px )
     .header-text, .presentation-text
@@ -55,12 +62,13 @@ h1,h2,h3,h4,h5,h6,p,a, span, small
 
 
 #bg-video
-  position: fixed
-  right: 0
-  bottom: 0
-  min-width: 100%
-  min-height: 100%
-  z-index: -10
+    position: fixed
+    right: 0
+    bottom: 150
+    min-width: 20%
+    height: auto
+    z-index: -9
+
 
 .bg-overlay
     background: rgba(0, 0, 0, 0.5)

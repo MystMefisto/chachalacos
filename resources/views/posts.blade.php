@@ -71,7 +71,7 @@
                 <h2 class="text-center text-white">LAS NOTICIAS DE LAS QUE PLATICAMOS</h2>
                 <nav class="text-center my-5">
                     <a href="/"
-                        class="mx-3 p-3 link-category btn btn-outline-light d-block d-md-inline {{ isset($categoryIdSelected)? '': 'selected-category' }}">Todas</a>
+                        class="mx-3 p-3 link-category btn btn-outline-light d-block d-md-inline {{ isset($categoryIdSelected)? '': 'selected-category' }}">TODAS</a>
                     @foreach ($categories as $category)
                     <a href="{{route('posts.category', $category->name)}}"
                         class="mx-3 p-3 link-category btn btn-outline-light d-block d-md-inline  {{ (isset($categoryIdSelected) && $category->id == $categoryIdSelected)? 'selected-category':'' }} ">{{$category->name}}</a>

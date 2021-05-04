@@ -19,6 +19,7 @@ small {
   .header-title {
     font-size: 60px;
     padding-bottom: 10px !important;
+    box-sizing: border-box;
   }
 
   .title-post {
@@ -47,6 +48,14 @@ small {
 
   .category-container h2 {
     font-size: 50px;
+  }
+
+  #bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 150;
+    min-width: 100%;
+    height: auto;
   }
 }
 
@@ -118,10 +127,10 @@ small {
 #bg-video {
   position: fixed;
   right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -10;
+  bottom: 150;
+  min-width: 20%;
+  height: auto;
+  z-index: -9;
 }
 
 .bg-overlay {
