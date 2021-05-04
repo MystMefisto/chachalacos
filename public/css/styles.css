@@ -19,7 +19,7 @@ small {
   .header-title {
     font-size: 50px;
     padding-bottom: 10px !important;
-    box-sizing: border-box;
+    padding-top: 200px;
   }
 
   .title-post {
@@ -54,7 +54,7 @@ small {
     position: fixed;
     right: 0;
     bottom: 150;
-    min-width: 100%;
+    min-width: 80%;
     height: auto;
   }
 }
@@ -139,6 +139,8 @@ small {
 
 .header-title {
   margin: 0 200px;
+  box-sizing: content-box;
+  padding-top: 120px;
   padding-bottom: 100px;
   -webkit-animation: title 1s linear;
           animation: title 1s linear;

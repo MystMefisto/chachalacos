@@ -37,15 +37,15 @@
             </div>
     </nav>
 
-    <video autoplay muted loop id="bg-video">
+    <video autoplay preload="auto" muted loop id="bg-video">
         <source src="{{asset('images/background.mp4')}}" type="video/mp4">
     </video>
 
 
 
-    <header class="header-container pt-5" {{ isset($categoryIdSelected)? 'hidden': '' }}>
+    <header class="header-container" {{ isset($categoryIdSelected)? 'hidden': '' }}>
         <div class="bg-overlay pt-5 container-fluid">
-                <h1 class="pt-5 text-center text-white header-title mx-auto"> CHACHALACOS PODCAST</h1>
+                <h1 class="text-center text-white header-title mx-auto"> CHACHALACOS PODCAST</h1>
             <img class="d-block mx-auto header-logo" src="{{asset('images/logo.svg')}}" width="500" alt="" loading="lazy">
             <h2 class="header-presentation text-white text-center">UN PODCAST AUTENTICO DE NOTICIAS</h2>
         </div>
